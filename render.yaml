@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: money-os
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: DATABASE_PATH
+        value: money_os.db
+      - key: ADMIN_PASSWORD
+        sync: false
